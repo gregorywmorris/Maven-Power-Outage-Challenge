@@ -7,7 +7,6 @@ Project Organization
 ------------
 
     ├── LICENSE
-    ├── Makefile           <- Makefile with commands like `make data` or `make train`
     ├── README.md          <- The top-level README for developers using this project.
     ├── data
     │   ├── external       <- Data from third party sources.
@@ -48,8 +47,6 @@ Project Organization
     │   │
     │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
     │       └── visualize.py
-    │
-    └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
 
 Data Dictionary:
 Field	Description
@@ -64,6 +61,7 @@ Field	Description
 
 
 Excell Data Cleaning:
+* Used the Data Dictionary as a guide for expected values.
 * Formatted data tables to match 2023 format. 
     * For Alert criteria before 2015, listed as unknown.
     * Split combined date time columns for years before 2011.
