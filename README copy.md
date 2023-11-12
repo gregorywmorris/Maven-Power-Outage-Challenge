@@ -51,7 +51,24 @@ Project Organization
     │
     └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
 
+Data Dictionary:
+Field	Description
+* Date & Time Event Began	The month day year and time (in 24-hour format) when the incident began.
+* Date & Time of Restoration	The month day year and time (in 24-hour format) when the event no longer met one of the 24 criteria for an emergency alert.
+* Area Affected	The name of the State(s) and political subdivision(s) (i.e. city town county etc.) affected by the incident. This represents the largest area affected by the incident and it's not a requirement to list all the cities and towns in a region or State.
+* NERC Region	North American Electric Reliability Corporation (NERC) region responsible for the restoration
+* Alert Criteria	Emergency criteria met that caused the form to be filled
+* Event Type	Cause of the incident
+* Demand Loss (megawatts)	The amount of the peak demand involved over the entire incident. If amount is unknown and you are unable to make an estimate then leave this blank.
+* Number of Customers Affected	The total number of customers affected during the entire incident or disturbance which could be more than the peak number in the case of rolling blackouts. If this number cannot be estimated when the form is initially submitted check the unknown box.
 
---------
 
-<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
+Excell Data Cleaning:
+* Formatted data tables to match 2023 format. 
+    * For Alert criteria before 2015, listed as unknown.
+    * Split combined date time columns for years before 2011.
+    * Formatted date, time, and integer columns.
+* Combined to single sheet. 
+* Date columns: Ongoing /Unknown are all past dates that were not updated. These will be left blank inorder to be able to properly format the data.
+* Demand Loss(MW): expected value is integer or left blank if unknown. Deleted: 'NA' and 'unknown' strings, '-'. Changed: 8-10k to 10k, customers affected moved to correct column, deleted peak and kept actual (and removed strings). 
+* Number of Customers: Expected value is integer or left blank if unknown. Deleted: 'NA' and 'unknown' strings, date, '-'. Changed: 37-40 to 40.
