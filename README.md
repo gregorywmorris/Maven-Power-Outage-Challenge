@@ -87,7 +87,7 @@ Data Dictionary is used as a guide for expected values.
     * Convert to singular of for earthquake.
     * Removed descriptive text from a Thunderstorms data field.
     * All variants of winter, snow, ice or cold weather events converted to Winter/Snow/Ice.NOAA's National Severe Storms Laboratory [groups these as winter storms.](https://www.nssl.noaa.gov/education/svrwx101/winter/types/#:~:text=Winter%20Storms&text=While%20heavy%20snowfalls%20and%20severe,of%20ice%20on%20exposed%20surfaces.)
-    * Converted all cyber attack/event to Cyber Event.
+    * Converted all cyber attacks/events to Cyber Event.
     * Converted all variants of Brush Fire to Brush Fire.
     * Converted all variants of Breaker to Breaker Failure.
     *  All [CAISO (California Independent System Operator)](https://www.caiso.com/Documents/Rotating-Power-Outages-Fact-Sheet.pdf) variants converted to CAISO Initiated Interruption.
