@@ -81,28 +81,24 @@ Data Dictionary is used as a guide for expected values.
 <br>
 * Event Type: 
 **Note 1:** Format so that similar items are grouped for analysis. Many nuanced details fail to provide additional insight and hinder analysis often due to the low number of records. Grouping related instances will allow better general analysis and is more appropriate for a dashboard.
-**Note 2:** Public appeals are a request for public energy conservation and not a cause. It is done when they are unable to supply the power needed.
+**Note 2:** Public appeals are a request for public energy conservation and not a cause. It is done when the power grid is unable to supply the power needed; Generation Inadequacy.
     * Format as Text.
-    * Other: Rare and unique events. Other, low-flying helicopter, Voltage Reduction (System Test).
-    * Physical Attack/Vandalism: all variants of physical attack, vandalism, Suspicious Activity.
-    * Unkown/Unspecified: Unknown *, - Unknown, Distribution Interruption - Unknown Cause, (Load Shed: a controlled process that shuts down electrical power) Load shedding, shed firm load, public appeal (no cause listed), load reduction, interruption of firm power, Electrical System Separation/[Islanding](https://en.wikipedia.org/wiki/Islanding). Unless the cause is listed i.e. fire, severe weather, etc.
-    * Earthquake: No change.
-    * Cyber Event: All cyber attacks/events and telecommunication attacks. Excludes computer hardware.
-    * Breaker Failure: All variants of Breaker.
-    * Equipment Failure: All variants of equipment/line/generator/switch/hardware/cable/substation/exciter faulted/failure/malfunction/tripped/error/loss, complete system failure. Unless the cause is listed i.e. fire, severe weather, etc., we only know the equipment failed.
-    * Fuel Supply Deficiency: most don't specify a type of fuel, convert all to Fuel Supply Deficiency
-    * Fire: All variations of fire listed, supercede equipment failure.
-    * Wildfire: All variants of wildfire and Brushfire (a type of wildfire)
-    * Generation Inadequacy Unspecified: Generation inadequacy, inadequate electric resources to serve load, pubic appeals, CAISO Initiated Interruption: All [CAISO (California Independent System Operator)](https://www.caiso.com/Documents/Rotating-Power-Outages-Fact-Sheet.pdf) variants converted, except heatwave specified.
-    * Severe Weather - Unspecified: May or may not include high winds, severe weather, severe/major storms, weather, and natural disasters.
-    * Severe Weather - Hurricane/Tornado/Tropical: All variants of hurricanes, tornados, and tropical depressions.
-    * Severe Weather - Rain/Wind/Flooding: All variants of rain, flooding, and High Winds and Heavy Rains.
-    * Severe Weather - Winter/Snow/Ice: All variants of winter, snow, ice, cold weather, freezing rain and winter storm events. NOAA's National Severe Storms Laboratory [groups these as winter storms.](https://www.nssl.noaa.gov/education/svrwx101/winter/types/#:~:text=Winter%20Storms&text=While%20heavy%20snowfalls%20and%20severe,of%20ice%20on%20exposed%20surfaces.), Public Appeal due to Severe Weather - Cold.
-    * Severe Weather - Lightning/Thunderstorm: Lightning storms, lightning strikes, lighting, thunderstorms and [Hail](https://www.nssl.noaa.gov/education/svrwx101/hail/)
-    * Severe Weather - Wind: Nor'easter, high winds, Severe Storm with High Wind Gusts.
-    * Severe Weather - Heat Wave: Heat storm, heat wave, high temperatures.
-
-
+    1. Cyber Event: All cyber attacks/events and telecommunication attacks. Excludes computer hardware.
+    1. Equipment Failure: All variants of equipment/line/generator/switch/hardware/cable/substation/exciter/breaker faulted/failure/malfunction/tripped/error/loss/shutdown, complete system failure, Operational Failure of Electrical System. Unless the cause is listed i.e. fire, severe weather, etc., we only know the equipment failed.
+    1. Fire/Wildfire: All variations of fire listed, all variants of wildfire and Brushfire (a type of wildfire); supersede equipment failure.
+    1. Generation Inadequacy Load/Fuel/Supply: Generation inadequacy, inadequate electric resources to serve load, pubic appeals, high loads, all to Fuel Supply Deficiency, loss of power from wholesaler, CAISO Initiated Interruption: All [CAISO (California Independent System Operator)](https://www.caiso.com/Documents/Rotating-Power-Outages-Fact-Sheet.pdf) variants converted. Unless the cause is listed i.e. fire, severe weather
+    1. Natural Disasters - Earthquake/Hurricane/Tornado/Tropical: All variants of hurricanes, tornados, and tropical depressions.
+        * Natural disasters could encompass more than listed here depending on the source definition. A decision was made to group other weather events separately as it is likely unique decisions can be made for them.
+    1. Other: Rare and unique events. Low-flying helicopter, Voltage Reduction (System Test), Made Public Appeal - System Drill, and other.
+    1. Physical Attack/Vandalism: all variants of physical attack, vandalism, and suspicious activity.
+    1. Severe Weather - Heat Wave: Heat storm, heat wave, high temperatures.
+    1. Severe Weather - Lightning/Thunderstorm: Lightning storms, lightning strikes, lighting, thunderstorms and [Hail](https://www.nssl.noaa.gov/education/svrwx101/hail/).
+    1. Severe Weather - Rain/Wind/Flooding: All variants of rain, flooding, with or without Wind.
+    1. Severe Weather - Wind: Nor'easter, high winds, Severe Storm with High Wind Gusts, dust storm.
+    1. Severe Weather - Winter/Snow/Ice: All variants of winter, snow, ice, cold weather, freezing rain and winter storm events. NOAA's National Severe Storms Laboratory [groups these as winter storms.](https://www.nssl.noaa.gov/education/svrwx101/winter/types/#:~:text=Winter%20Storms&text=While%20heavy%20snowfalls%20and%20severe,of%20ice%20on%20exposed%20surfaces.), Public Appeal due to Severe Weather - Cold.
+    1. Severe Weather - Unspecified/Other: May or may not include high winds, severe weather, severe/major storms, weather, fog.
+    1. System Operations: [System operations](https://www.pjm.com/markets-and-operations/ops-analysis), operational failure of electrical system.
+    1. Unkown/Unspecified: Unknown *, - Unknown, Distribution Interruption - Unknown Cause, [Load shedding](https://www.techtarget.com/searchdatacenter/definition/load-shedding), shed firm load, public appeal (no cause listed), load reduction, interruption of firm power, Electrical System Separation/[Islanding](https://en.wikipedia.org/wiki/Islanding). Unless the cause is listed i.e. fire, severe weather, etc.
 <br>
 * Demand Loss(MW): 
     * The expected value is a number or left blank if unknown. All strings were removed.
