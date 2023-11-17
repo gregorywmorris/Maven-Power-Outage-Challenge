@@ -80,20 +80,29 @@ Data Dictionary is used as a guide for expected values.
 * Date of Restoration: Ongoing made blank.
 <br>
 * Event Type: 
-**Note:** Format so that similar items are grouped for analysis. Many nuanced details fail to provide additional insight and hinder analysis often due to the low present numbers. Grouping related instances will allow better general analysis.
+**Note 1:** Format so that similar items are grouped for analysis. Many nuanced details fail to provide additional insight and hinder analysis often due to the low number of records. Grouping related instances will allow better general analysis and is more appropriate for a dashboard.
+**Note 2:** Public appeals are a request for public energy conservation and not a cause. It is done when they are unable to supply the power needed.
     * Format as Text.
-    * Converted all variants of physical attack or vandalism to Physical Attack/Vandalism.
-    * Converted to Unkown: Unknown *, - Unknown, Distribution Interruption - Unknown Cause.
-    * Convert to singular of for earthquake.
-    * Removed descriptive text from a Thunderstorms data field.
-    * All variants of winter, snow, ice or cold weather events converted to Winter/Snow/Ice.NOAA's National Severe Storms Laboratory [groups these as winter storms.](https://www.nssl.noaa.gov/education/svrwx101/winter/types/#:~:text=Winter%20Storms&text=While%20heavy%20snowfalls%20and%20severe,of%20ice%20on%20exposed%20surfaces.)
-    * Converted all cyber attacks/events to Cyber Event.
-    * Converted all variants of Brush Fire to Brush Fire.
-    * Converted all variants of Breaker to Breaker Failure.
-    *  All [CAISO (California Independent System Operator)](https://www.caiso.com/Documents/Rotating-Power-Outages-Fact-Sheet.pdf) variants converted to CAISO Initiated Interruption.
-    * Converted all variants of Electrical System Separation/[Islanding](https://en.wikipedia.org/wiki/Islanding) to Electrical System Separation (Islanding).
-    * All variants of Equipment Faulted/Failure/Malfunction converted to Equipment Malfunction.
-    * Fuel Supply Deficiency
+    * Other: Rare and unique events. Other, low-flying helicopter, Voltage Reduction (System Test).
+    * Physical Attack/Vandalism: all variants of physical attack, vandalism, Suspicious Activity.
+    * Unkown/Unspecified: Unknown *, - Unknown, Distribution Interruption - Unknown Cause, (Load Shed: a controlled process that shuts down electrical power) Load shedding, shed firm load, public appeal (no cause listed), load reduction, interruption of firm power, Electrical System Separation/[Islanding](https://en.wikipedia.org/wiki/Islanding). Unless the cause is listed i.e. fire, severe weather, etc.
+    * Earthquake: No change.
+    * Cyber Event: All cyber attacks/events and telecommunication attacks. Excludes computer hardware.
+    * Breaker Failure: All variants of Breaker.
+    * Equipment Failure: All variants of equipment/line/generator/switch/hardware/cable/substation/exciter faulted/failure/malfunction/tripped/error/loss, complete system failure. Unless the cause is listed i.e. fire, severe weather, etc., we only know the equipment failed.
+    * Fuel Supply Deficiency: most don't specify a type of fuel, convert all to Fuel Supply Deficiency
+    * Fire: All variations of fire listed, supercede equipment failure.
+    * Wildfire: All variants of wildfire and Brushfire (a type of wildfire)
+    * Generation Inadequacy Unspecified: Generation inadequacy, inadequate electric resources to serve load, pubic appeals, CAISO Initiated Interruption: All [CAISO (California Independent System Operator)](https://www.caiso.com/Documents/Rotating-Power-Outages-Fact-Sheet.pdf) variants converted, except heatwave specified.
+    * Severe Weather - Unspecified: May or may not include high winds, severe weather, severe/major storms, weather, and natural disasters.
+    * Severe Weather - Hurricane/Tornado/Tropical: All variants of hurricanes, tornados, and tropical depressions.
+    * Severe Weather - Rain/Wind/Flooding: All variants of rain, flooding, and High Winds and Heavy Rains.
+    * Severe Weather - Winter/Snow/Ice: All variants of winter, snow, ice, cold weather, freezing rain and winter storm events. NOAA's National Severe Storms Laboratory [groups these as winter storms.](https://www.nssl.noaa.gov/education/svrwx101/winter/types/#:~:text=Winter%20Storms&text=While%20heavy%20snowfalls%20and%20severe,of%20ice%20on%20exposed%20surfaces.), Public Appeal due to Severe Weather - Cold.
+    * Severe Weather - Lightning/Thunderstorm: Lightning storms, lightning strikes, lighting, thunderstorms and [Hail](https://www.nssl.noaa.gov/education/svrwx101/hail/)
+    * Severe Weather - Wind: Nor'easter, high winds, Severe Storm with High Wind Gusts.
+    * Severe Weather - Heat Wave: Heat storm, heat wave, high temperatures.
+
+
 <br>
 * Demand Loss(MW): 
     * The expected value is a number or left blank if unknown. All strings were removed.
@@ -112,5 +121,5 @@ Data Dictionary is used as a guide for expected values.
     * Deleted: 'NA' and 'unknown' strings, date, '-'.
     * Approx, greater/Less than converted to just the number given.
     * Converted utilities and industrial to just the number given.
-    * Formatted to the whole number.
+    * Formatted to a whole number.
 
