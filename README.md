@@ -1,42 +1,7 @@
 # Maven-Power-Outage-Challenge
 Maven Power Outage Challenge
 
-├── LICENSE
-├── README.md          <- The top-level README for developers using this project.
-├── data
-│   ├── processed      <- The final, canonical data sets for modeling.
-│   └── raw            <- The original, immutable data dump.
-│
-├── docs               <- A default Sphinx project; see sphinx-doc.org for details
-│
-├── models             <- Trained and serialized models, model predictions, or model summaries.
-│
-├── notebooks          <- Jupyter notebooks.
-│
-├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-│
-├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-│   └── figures        <- Generated graphics and figures to be used in reporting
-│
-├── requirements.txt   <- The requirements file for reproducing the analysis environment,
-│                         generated with `pip freeze > requirements.txt`
-│
-├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
-├── src                <- Source code for use in this project.
-│   ├── __init__.py    <- Makes src a Python module
-│   │
-│   ├── data           <- Scripts to download or generate data
-│   │   └── make_dataset.py
-│   │
-│   ├── features       <- Scripts to turn raw data into features for modeling
-│   │   └── build_features.py
-│   │
-│   ├── models         <- Scripts to train models and then use trained models to make
-│   │   │                 predictions
-│   │   ├── predict_model.py
-│   │   └── train_model.py
-│   │
-│   └── visualization  <- Scripts to create exploratory and results-oriented visualizations
+
 
 ### Data Dictionary:
 Field	Description
@@ -75,13 +40,16 @@ Data Dictionary is used as a guide for expected values.
 
 **Stage Two: Excell**
 * Combined into a single sheet. Shape (3913,11).
+* Duplicates are identified by Reporting Area and similarity of time, then merged. 
+    * If the same reporting areas the highest number is kept. If one has additional reporting then numbers are combined.
 * Alert Criteria: Fill blank with 'Unknown'.
 * Format data to Calibri 10 middle center.
-* Format date formula: `=DATE(YEAR(a1),MONTH(a1),DAY(a1))`
-* Format time to resolve a.m./p.m. issue: `=SUBSTITUTE(SUBSTITUTE(TEXT(C49, "h:mm AM/PM"), "a.m.", "AM"), "p.m.", "PM")`
-* Convert to time: `=TIME(HOUR(C1634),MINUTE(C1634),SECOND(C1634))`
-* Convert restoration time based on hours: `=A1 + TIME(7, 0, 0)` 
-    * For those that end the same day, ensure the end time is 23:59.
+* Format date formula: `=DATE(YEAR(C2),MONTH(C2),DAY(C2))`
+* Format time to resolve a.m./p.m. issue: `=SUBSTITUTE(SUBSTITUTE(TEXT(C2, "hh:mm AM/PM"), "a.m.", "AM"), "p.m.", "PM")`
+* Convert to time: `=TIME(HOUR(D2),MINUTE(D2),SECOND(D2))`
+* Merge date time: `=DATE(YEAR(B2), MONTH(B2), DAY(B2)) + TIME(HOUR(C2), MINUTE(C2), SECOND(C2))`
+* Convert restoration time based on hours: `=B2 + TIME(7, 0, 0)`
+    * Dates are adjusted for times that rollover.
 * Date Event Began: 
     * Format to date type, correct transposed dates i.e. ends before it starts.
     * Combined date and time as "Date Event Began".
@@ -92,7 +60,7 @@ Data Dictionary is used as a guide for expected values.
 * Time of Restoration: 
     * Removed extra spaces and words, 
     * Transitioned to time ##:## AM/PM format, N/A and blank end times determined by average time per year based on reporting from [US Energy Information Administration.](https://www.eia.gov/todayinenergy/detail.php?id=54639#:~:text=When%20major%20events%E2%80%94including%20snowstorms,year%20from%202013%20to%202021.) 
-    * No reliable date before 2008, used an average time of 3.5 hours in 2008 for all earlier years.
+    * No reliable date before 2008, used an average time of 3.5 hours for 2009 and all earlier years. [Eaton Blackout Tracker](https://www.eaton.com/content/dam/eaton/products/backup-power-ups-surge-it-power-distribution/backup-power-ups/blackout-tracker-/eaton-blackout-tracker-annual-report-2009.pdf) began in early 2008 but only the 2009 report is available. 
     * No reliable date after 2021, used an average time of 7 hours in 2021 for all later years.
     * Combined date and time as "Time of Restoration".
 * Area Affected: Puerto Rico: to Puerto Rico, blank to Unkown
@@ -165,3 +133,45 @@ Data Dictionary is used as a guide for expected values.
     * Fill remaining after by just Event Type
 * Column names to all upper case.
 * Save as 'DOE_final.xlxs'.
+
+
+├── LICENSE
+├── README.md          <- The top-level README for developers using this project.
+├── data
+│   ├── processed      <- The final, canonical data sets for modeling.
+│   └── raw            <- The original, immutable data dump.
+│
+├── docs               <- A default Sphinx project; see sphinx-doc.org for details
+│
+├── models             <- Trained and serialized models, model predictions, or model summaries.
+│
+├── notebooks          <- Jupyter notebooks.
+│
+├── references         <- Data dictionaries, manuals, and all other explanatory materials.
+│
+├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
+│   └── figures        <- Generated graphics and figures to be used in reporting
+│
+├── requirements.txt   <- The requirements file for reproducing the analysis environment,
+│                         generated with `pip freeze > requirements.txt`
+│
+├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
+├── src                <- Source code for use in this project.
+│   ├── __init__.py    <- Makes src a Python module
+│   │
+│   ├── data           <- Scripts to download or generate data
+│   │   └── make_dataset.py
+│   │
+│   ├── features       <- Scripts to turn raw data into features for modeling
+│   │   └── build_features.py
+│   │
+│   ├── models         <- Scripts to train models and then use trained models to make
+│   │   │                 predictions
+│   │   ├── predict_model.py
+│   │   └── train_model.py
+│   │
+│   └── visualization  <- Scripts to create exploratory and results-oriented visualizations
+
+
+
+2003 11-12
