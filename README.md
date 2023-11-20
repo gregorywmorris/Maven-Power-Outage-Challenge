@@ -52,6 +52,7 @@ Field	Description
 **Additional Note:**
 
 * The year range is from 2002 to 2023.
+* Users are instructed to leave blank when unable to estimate outages MW or population. For analysis purposes these numbers will be estimated. 
 
 ### Data Cleaning
 Data Dictionary is used as a guide for expected values.
@@ -74,20 +75,26 @@ Data Dictionary is used as a guide for expected values.
 
 **Stage Two: Excell**
 * Combined into a single sheet. Shape (3913,11).
+* Alert Criteria: Fill blank with 'Unknown'.
 * Format data to Calibri 10 middle center.
 * Format date formula: `=DATE(YEAR(a1),MONTH(a1),DAY(a1))`
 * Format time to resolve a.m./p.m. issue: `=SUBSTITUTE(SUBSTITUTE(TEXT(C49, "h:mm AM/PM"), "a.m.", "AM"), "p.m.", "PM")`
 * Convert to time: `=TIME(HOUR(C1634),MINUTE(C1634),SECOND(C1634))`
 * Convert restoration time based on hours: `=A1 + TIME(7, 0, 0)` 
     * For those that end the same day, ensure the end time is 23:59.
-* Date Event Began: Format to date type, correct transposed dates i.e. ends before it starts.
+* Date Event Began: 
+    * Format to date type, correct transposed dates i.e. ends before it starts.
+    * Combined date and time as "Date Event Began".
 * Time Event Began: Removed extra spaces and words, transitioned to time ##:## AM/PM format, Changed 5:70 to 5:00, N/A and blank changed to 1600 as this is the most common time per [Red Cross.](https://perryco.org/wp-content/uploads/2020/07/poweroutage.pdf)
-* Date of Restoration: Ongoing and blank dates filled with the start dates as that is the only day we can confirm the outage occurred. Formatted to date type.
+* Date of Restoration: 
+    * Ongoing and blank dates are filled with the start dates as that is the only day we can confirm the outage occurred. 
+    * Formatted to date type.
 * Time of Restoration: 
     * Removed extra spaces and words, 
     * Transitioned to time ##:## AM/PM format, N/A and blank end times determined by average time per year based on reporting from [US Energy Information Administration.](https://www.eia.gov/todayinenergy/detail.php?id=54639#:~:text=When%20major%20events%E2%80%94including%20snowstorms,year%20from%202013%20to%202021.) 
     * No reliable date before 2008, used an average time of 3.5 hours in 2008 for all earlier years.
     * No reliable date after 2021, used an average time of 7 hours in 2021 for all later years.
+    * Combined date and time as "Time of Restoration".
 * Area Affected: Puerto Rico: to Puerto Rico, blank to Unkown
 * NERC Region: Puerto Rico areas changed to PR [they do not fall into a specific region](https://19january2017snapshot.epa.gov/energy/north-american-reliability-corporation-nerc-region-representational-map_.html). Filled blanks by looking at similar Area Affected.
 <br>
@@ -111,7 +118,20 @@ Data Dictionary is used as a guide for expected values.
     1. Severe Weather - Unspecified/Other: May or may not include high winds, severe weather, severe/major storms, weather, fog.
     1. System Operations: [System operations](https://www.pjm.com/markets-and-operations/ops-analysis), operational failure of electrical system.
     1. Unkown/Unspecified: Unknown *, - Unknown, Distribution Interruption - Unknown Cause, [Load shedding](https://www.techtarget.com/searchdatacenter/definition/load-shedding), shed firm load, public appeal (no cause listed), load reduction, interruption of firm power, Electrical System Separation/[Islanding](https://en.wikipedia.org/wiki/Islanding). Unless the cause is listed i.e. fire, severe weather, etc.
+
 <br>
+
+* NERC Region
+    * Electricity Information Sharing and Analysis Center (E-ISAC) converted to the appropriate NERC region based on the criteria listed below:
+        * [NERC Atlas for NERC identification](https://atlas.eia.gov/datasets/eia::nerc-regions/explore?location=28.054751%2C-86.957928%2C4.65) with Google Maps to identify locations not in the atlas.
+        * NERC based on the Area Affected Column. 
+        * Convert delimiters to ",".
+        * Corrected spellings.
+        * Purto Rico: PR
+        * Hawaii: HI
+        * Indeterminate NERC membership: List nearest NERC.
+<br>
+
 * Demand Loss(MW): 
     * The expected value is a number or left blank if unknown. All strings were removed.
     * Deleted: 'NA', 'unknown', '-', descriptive text.
@@ -121,28 +141,27 @@ Data Dictionary is used as a guide for expected values.
     * Removed dates and times.
     * Error: Number stored as text, converted to a number.
     * Formated number with one decimal place to maintain the accuracy of estimates given.
-<br>
-* NERC Region
-    * [NERC Atlas for NERC identification](https://atlas.eia.gov/datasets/eia::nerc-regions/explore?location=28.054751%2C-86.957928%2C4.65) with Google Maps to identify locations not in the atlas.
-    * NERC based on the Area Affected Column. 
-    * Convert delimiters to ",".
-    * Corrected spellings.
-    * Purto Rico: PR
-    * Hawaii: HI
-    * Indeterminate NERC membership: List nearest NERC.
+    * Filled blanks where specified in Alert Criteria, accepting the highest if a range is given.
+        * In the case of "Uncontrolled loss of (various numbers provided) Megawatts or more...", blanks filled in as 100.
 
 <br>
+
 * Number of Customers: 
     * The expected value is a number or left blank if unknown. 
-    * Deleted descriptive text
+    * Deleted descriptive text.
     * Error: Number stored as text, converted to a number.
     * Deleted: 'NA' and 'unknown' strings, date, '-'.
     * Approx, greater/Less than converted to just the number given.
     * Converted utilities and industrial to just the number given.
     * Formatted to a whole number.
+    * Fill in blanks where specified in Alert Criteria, accepting the highest if a range is given.
+        * in the case of "Loss of electric service to more than 50,000 customers...", blanks filled in as 50000.
+    * In some instances, the number reported may be less than suggested in the Alert Criteria. No correction was made. 
+
 
 **Stage Three: Python**
-* lowercase column names for user ease of use.
-* date event began and date of restoration to date.
-* time event began and time of restoration to 24-hour time.
-
+* Date Event Began and Date of Restoration to datetime(64).
+* Fill in blanks based on Event Type and NERC Region averages.
+    * Fill remaining after by just Event Type
+* Column names to all upper case.
+* Save as 'DOE_final.xlxs'.
