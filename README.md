@@ -42,8 +42,6 @@ Data Dictionary is used as a guide for expected values.
 **Stage Two:** 
 **Excel**
 * Combined into a single sheet. Shape (3913,11).
-* Duplicates are identified by Reporting Area and similarity of time, then merged. 
-    * If the same reporting areas the highest number is kept. If one has additional reporting then numbers are combined.
 * Alert Criteria: Fill blank with 'Unknown'.
 * Format data to Calibri 10 middle center.
 * Format date formula: `=DATE(YEAR(C2),MONTH(C2),DAY(C2))`
@@ -141,7 +139,9 @@ Data Dictionary is used as a guide for expected values.
 * Column names to all upper case.
 * Save as 'DOE_final.xlxs'.
 * 
-
+** Excel**
+* Duplicates are identified by Reporting Area and similarity of time, then merged. 
+    * If the same reporting areas the highest number is kept. If one has additional reporting then numbers are combined.
 
 
 ├── LICENSE
