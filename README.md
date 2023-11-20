@@ -22,7 +22,8 @@ Field	Description
 ### Data Cleaning
 Data Dictionary is used as a guide for expected values.
 
-**Stage One: Excell**
+**Stage One:** 
+**Excel**
 * Used the Data Dictionary as a guide for expected values.
 * Formatted data tables:
     * Format to use 2022's column names as this format best fits the majority of the data.
@@ -38,7 +39,8 @@ Data Dictionary is used as a guide for expected values.
 * Sheet 2004: Removed record with no start and end dates. Unable to confirm actuals.
 * Sheet 2002 and 2003: Merge and center data cells by date across all columns where appropriate.
 
-**Stage Two: Excell**
+**Stage Two:** 
+**Excel**
 * Combined into a single sheet. Shape (3913,11).
 * Duplicates are identified by Reporting Area and similarity of time, then merged. 
     * If the same reporting areas the highest number is kept. If one has additional reporting then numbers are combined.
@@ -127,12 +129,19 @@ Data Dictionary is used as a guide for expected values.
     * In some instances, the number reported may be less than suggested in the Alert Criteria. No correction was made. 
 
 
-**Stage Three: Python**
-* Date Event Began and Date of Restoration to datetime(64).
+**Stage Three:**
+
+**Python**
+* Identify negative datetimes
+     * For datetime correction: in the case of 00:00 to early morning, (0400) it is considered a wrong day issue as it is common for Americans to transition to the AM as if it is the same day in common talk. This is further supported by the times often starting in late evening or near midnight. 
+    * In all other cases the dates will be treated as if they are transposed and swapped accordingly. 
 * Fill in blanks based on Event Type and NERC Region averages.
     * Fill remaining after by just Event Type
+* Identify duplicate dates, and confirm if duplicated based on the time range and area affected.
 * Column names to all upper case.
 * Save as 'DOE_final.xlxs'.
+* 
+
 
 
 ├── LICENSE
