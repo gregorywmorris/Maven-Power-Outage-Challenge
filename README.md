@@ -147,10 +147,14 @@ Data Dictionary is used as a guide for expected values.
 * Duplicates are identified by Reporting Area and similarity of time, then merged. 
     * If the same reporting areas the highest number is kept. If one has additional reporting then numbers are combined.
 * Correct NERC Region based on state identification.
+* Manually correct states.
+* Google city, area, and county locations.
 * [Midcontinent Independent Operator (MISO)](https://ca.practicallaw.thomsonreuters.com/w-016-8616?transitionType=Default&contextData=(sc.Default)&firstPage=true#:~:text=One%20of%20seven%20regional%20transmission,%2C%20Indiana%2C%20Iowa%2C%20Kentucky%2C) states.
 * [Delmarva Power service territory](https://www.delmarva.com/AboutUs/Pages/CompanyInformation.aspx#:~:text=Delmarva%20Power%2C%20a%20public%20utility,gas%20customers%20in%20northern%20Delaware.)
 * [Southwestern Region of Service Territory](https://www.swepco.com/company/about/#:~:text=SWEPCO%20Fact%20Sheet-,Service%20Territory,Panhandle%20area%20of%20North%20Texas.)
 * [Mid-Altantic Region of PJM](https://www.pjm.com/about-pjm/who-we-are.aspx#:~:text=PJM%20Interconnection%20is%20a%20regional,and%20the%20District%20of%20Columbia.)
+* [Duke Energy](https://www.duke-energy.com/partner-with-us/economic-development/the-carolinas)
+* 
 
 <BR>
 
