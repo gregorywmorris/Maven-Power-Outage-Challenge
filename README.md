@@ -103,7 +103,7 @@ Data Dictionary is used as a guide for expected values.
 <br>
 
 * Demand Loss(MW): 
-    * The expected value is a number or left blank if unknown. All strings were removed.
+    * The expected value is a number or leave blank if unknown. All strings were removed.
     * Deleted: 'NA', 'unknown', '-', descriptive text.
     * For ranges, only accept the highest estimate.
     * Approx, greater/Less than converted to just the number given.
