@@ -1,10 +1,10 @@
-# Maven-Power-Outage-Challenge
-Maven Power Outage Challenge
+# Maven Power Outage Challenge
+
 
 
 
 ### Data Dictionary:
-Field	Description
+**Field	Description:**
 *  **Date & Time Event Began:**	The month day year and time (in 24-hour format) when the incident began.
 *  **Date & Time of Restoration:** The month day year and time (in 24-hour format) when the event no longer met one of the 24 criteria for an emergency alert.
 *  **Area Affected:** The name of the State(s) and political subdivision(s) (i.e. city town county etc.) affected by the incident. This represents the largest area affected by the incident and it's not a requirement to list all the cities and towns in a region or State.
@@ -18,6 +18,8 @@ Field	Description
 
 * The year range is from 2002 to 2023.
 * Users are instructed to leave blank when unable to estimate outages MW or population. For analysis purposes these numbers will be estimated. 
+
+<BR>
 
 ### Data Cleaning
 Data Dictionary is used as a guide for expected values.
@@ -132,17 +134,20 @@ Data Dictionary is used as a guide for expected values.
 **Python**
 * Identify negative datetimes
      * For datetime correction: in the case of 00:00 to early morning, (0400) it is considered a wrong day issue as it is common for Americans to transition to the AM as if it is the same day in common talk. This is further supported by the times often starting in late evening or near midnight. 
-    * In all other cases the dates will be treated as if they are transposed and swapped accordingly. 
+    * In all other cases, the dates will be treated as if they are transposed and swapped accordingly. 
 * Fill in blanks based on Event Type and NERC Region averages.
-    * Fill remaining after by just Event Type
+    * Fill remaining after by just Event Type.
+* Identify US states and Canadian provinces.
 * Identify duplicate dates, and confirm if duplicated based on the time range and area affected.
 * Column names to all upper case.
 * Save as 'DOE_final.xlxs'.
-* 
-** Excel**
+
+**Excel**
+* Validate and complete state and province identification. 
 * Duplicates are identified by Reporting Area and similarity of time, then merged. 
     * If the same reporting areas the highest number is kept. If one has additional reporting then numbers are combined.
 
+<BR>
 
 ├── LICENSE
 ├── README.md          <- The top-level README for developers using this project.
