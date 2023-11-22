@@ -148,13 +148,25 @@ Data Dictionary is used as a guide for expected values.
     * If the same reporting areas the highest number is kept. If one has additional reporting then numbers are combined.
 * Correct NERC Region based on state identification.
 * Manually correct states.
-* Google city, area, and county locations.
+* Google city, area, and county locations. 
+* Unknown locations left blank, 18 total.
+* Carolina = ['North Carolina','South Carolina']
 * [Midcontinent Independent Operator (MISO)](https://ca.practicallaw.thomsonreuters.com/w-016-8616?transitionType=Default&contextData=(sc.Default)&firstPage=true#:~:text=One%20of%20seven%20regional%20transmission,%2C%20Indiana%2C%20Iowa%2C%20Kentucky%2C) states.
 * [Delmarva Power service territory](https://www.delmarva.com/AboutUs/Pages/CompanyInformation.aspx#:~:text=Delmarva%20Power%2C%20a%20public%20utility,gas%20customers%20in%20northern%20Delaware.)
 * [Southwestern Region of Service Territory](https://www.swepco.com/company/about/#:~:text=SWEPCO%20Fact%20Sheet-,Service%20Territory,Panhandle%20area%20of%20North%20Texas.)
 * [Mid-Altantic Region of PJM](https://www.pjm.com/about-pjm/who-we-are.aspx#:~:text=PJM%20Interconnection%20is%20a%20regional,and%20the%20District%20of%20Columbia.)
 * [Duke Energy](https://www.duke-energy.com/partner-with-us/economic-development/the-carolinas)
-* 
+* [Dominion Energy](https://en.wikipedia.org/wiki/Dominion_Energy#:~:text=Dominion%20Energy%2C%20Inc.%2C%20commonly,Ohio%2C%20Pennsylvania%2C%20North%20Carolina%2C)
+* [ComEd](https://www.exeloncorp.com/companies/comed#:~:text=ComEd's%20service%20territory%20comprises%20the,south%20(roughly%20Interstate%2080).)
+* [BGE](https://www.bge.com/AboutUs/Pages/CompanyInformation.aspx)
+* [A.D. Edmonston Pumping Plant](https://www.watereducation.org/aquapedia/ad-edmonston-pumping-plant)
+* [CSWS-AEP West](https://www.aep.com/about/businesses/opcos#:~:text=Maintaining%20the%20nation's%20largest%20electricity,Texas%2C%20Virginia%20and%20West%20Virginia.)
+* [Southern Company](https://www.southerncompany.com/about/our-business/energyisessential.html#:~:text=Our%20family%20of%20companies%20is,in%20Georgia%2C%20Alabama%20and%20Mississippi.)
+* [Entergy System](https://www.entergy.com/about/)
+* [TVA Service Territory](https://www.enelx.com/n-a/en/resources/brochures/tennessee-valley-authority-demand-response)
+    * [Government archives](https://www.archives.gov/milestone-documents/tennessee-valley-authority-act#:~:text=As%20a%20federal%20public%20power,%2C%20North%20Carolina%2C%20and%20Georgia.)
+* [Balancing Area](https://www.eia.gov/electricity/gridmonitor/about)
+    * [Southeastern Power Administration (SEPA)](https://www.federalregister.gov/agencies/southeastern-power-administration#:~:text=The%20Southeastern%20Power%20Administration%20is,Mississippi%2C%20Tennessee%2C%20and%20Kentucky.)
 
 <BR>
 
