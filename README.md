@@ -44,6 +44,7 @@ Data Dictionary is used as a guide for expected values.
 **Stage Two:** 
 **Excel**
 * Combined into a single sheet. Shape (3913,11).
+* Merge any identified duplicates.
 * Alert Criteria: Fill blank with 'Unknown'.
 * Format data to Calibri 10 middle center.
 * Format date formula: `=DATE(YEAR(C2),MONTH(C2),DAY(C2))`
@@ -138,7 +139,7 @@ Data Dictionary is used as a guide for expected values.
 * Fill in blanks based on Event Type and NERC Region averages.
     * Fill remaining after by just Event Type.
 * Identify US states and Canadian provinces.
-* Identify duplicate dates, and confirm if duplicated based on the time range and area affected.
+* Identify duplicate dates, and export list to Excel for manual comparison to confirm if merge is neccessary.
 * Column names to all upper case.
 * Save as 'DOE_final.xlxs'.
 
@@ -146,12 +147,16 @@ Data Dictionary is used as a guide for expected values.
 * Validate and complete state and province identification. 
 * Duplicates are identified by Reporting Area and similarity of time, then merged. 
     * If the same reporting areas the highest number is kept. If one has additional reporting then numbers are combined.
+    * Different Area Affected in the same state, the same Event Type, and with the same cause and the same start and end times will be combined.
+    * Combined special cases:
+        * 2007-9-18 5:15 and 9-18 5:14 events.
+        * 2010-6-17 0930, all 3 keep the latest resolution reporting.
 * Correct NERC Region based on state identification.
-* Manually correct states.
+* Manually correct states post Python processing.
 * Google city, area, and county locations. 
 * Unknown locations left blank, 18 total.
 * Carolina = ['North Carolina','South Carolina']
-* [Midcontinent Independent Operator (MISO)](https://ca.practicallaw.thomsonreuters.com/w-016-8616?transitionType=Default&contextData=(sc.Default)&firstPage=true#:~:text=One%20of%20seven%20regional%20transmission,%2C%20Indiana%2C%20Iowa%2C%20Kentucky%2C) states.
+* [Midcontinent Independent Operator (MISO)](https://ca.practicallaw.thomsonreuters.com/w-016-8616?transitionType=Default&contextData=(sc.Default)&firstPage=true#:~:text=One%20of%20seven%20regional%20transmission,%2C%20Indiana%2C%20Iowa%2C%20Kentucky%2C).
 * [Delmarva Power service territory](https://www.delmarva.com/AboutUs/Pages/CompanyInformation.aspx#:~:text=Delmarva%20Power%2C%20a%20public%20utility,gas%20customers%20in%20northern%20Delaware.)
 * [Southwestern Region of Service Territory](https://www.swepco.com/company/about/#:~:text=SWEPCO%20Fact%20Sheet-,Service%20Territory,Panhandle%20area%20of%20North%20Texas.)
 * [Mid-Altantic Region of PJM](https://www.pjm.com/about-pjm/who-we-are.aspx#:~:text=PJM%20Interconnection%20is%20a%20regional,and%20the%20District%20of%20Columbia.)
