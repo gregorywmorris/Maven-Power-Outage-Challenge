@@ -1,9 +1,30 @@
-# Maven Power Outage Challenge
+<h1 align="center">
+    <a href="https://www.energy.gov/">
+    <img src="./docs/images/DOE_Color_Seal_Green_top_buffer.jpg">
+    </a>
+</h1>
 
+<h6>Project brief</h6>
+For the Maven Power Outage Challenge, you'll be playing the role of a Senior Analytics Consultant hired by the U.S. Department of Energy (DOE). Here's your project brief:
+<br>
+<br>
+Electricity outages are a growing concern as we enter an age of unprecedented energy demand and climate disasters.
 
+We have event-level power outage data going back to 2002 but have struggled to make sense of it due to severe issues with the data quality and integrity.
 
+This is where you come in.
 
-### Data Dictionary:
+We need you to consolidate and clean up the raw data, and create a dashboard or report to help us understand patterns and trends around outages, quantify their impact on our communities, and identify possible weak points in the grid.
+
+Last but not least, please explicitly call out any caveats or assumptions you make in regard to data quality issues or missing values.
+
+### Data Cleaning
+Data Dictionary is used as a guide for expected values.
+
+<details>
+<summary>
+Data Dictionary
+</summary><br>
 **Field	Description:**
 *  **Date & Time Event Began:**	The month day year and time (in 24-hour format) when the incident began.
 *  **Date & Time of Restoration:** The month day year and time (in 24-hour format) when the event no longer met one of the 24 criteria for an emergency alert.
@@ -18,13 +39,13 @@
 
 * The year range is from 2002 to 2023.
 * Users are instructed to leave blank when unable to estimate outages MW or population. For analysis purposes these numbers will be estimated. 
+</details>
 
-<BR>
+<details>
+<summary>
+Stage One
+</summary><br>
 
-### Data Cleaning
-Data Dictionary is used as a guide for expected values.
-
-**Stage One:** 
 **Excel**
 * Used the Data Dictionary as a guide for expected values.
 * Formatted data tables:
@@ -40,8 +61,13 @@ Data Dictionary is used as a guide for expected values.
 * Sheet 2011: the years 2077 (well into the future) and 2001 (before data collection) were corrected to 2011 to match the start date.
 * Sheet 2004: Removed record with no start and end dates. Unable to confirm actuals.
 * Sheet 2002 and 2003: Merge and center data cells by date across all columns where appropriate.
+</details>
 
-**Stage Two:** 
+<details>
+<summary>
+Stage Two
+</summary><br>
+
 **Excel**
 * Combined into a single sheet. Shape (3913,11).
 * Merge any identified duplicates.
@@ -128,11 +154,14 @@ Data Dictionary is used as a guide for expected values.
     * Fill in blanks where specified in Alert Criteria, accepting the highest if a range is given.
         * in the case of "Loss of electric service to more than 50,000 customers...", blanks filled in as 50000.
     * In some instances, the number reported may be less than suggested in the Alert Criteria. No correction was made. 
+</details>
 
+<details>
+<summary>
+Stage Three
+</summary> <br />
+<b>Python</b>
 
-**Stage Three:**
-
-**Python**
 * Identify negative datetimes
      * For datetime correction: in the case of 00:00 to early morning, (0400) it is considered a wrong day issue as it is common for Americans to transition to the AM as if it is the same day in common talk. This is further supported by the times often starting in late evening or near midnight. 
     * In all other cases, the dates will be treated as if they are transposed and swapped accordingly. 
@@ -143,7 +172,7 @@ Data Dictionary is used as a guide for expected values.
 * Column names to all upper case.
 * Save as 'DOE_final.xlxs'.
 
-**Excel**
+<b>Excel</b>
 * Validate and complete state and province identification. 
 * Duplicates are identified by Reporting Area and similarity of time, then merged. 
     * If the same reporting areas the highest number is kept. If one has additional reporting then numbers are combined.
@@ -172,8 +201,19 @@ Data Dictionary is used as a guide for expected values.
     * [Government archives](https://www.archives.gov/milestone-documents/tennessee-valley-authority-act#:~:text=As%20a%20federal%20public%20power,%2C%20North%20Carolina%2C%20and%20Georgia.)
 * [Balancing Area](https://www.eia.gov/electricity/gridmonitor/about)
     * [Southeastern Power Administration (SEPA)](https://www.federalregister.gov/agencies/southeastern-power-administration#:~:text=The%20Southeastern%20Power%20Administration%20is,Mississippi%2C%20Tennessee%2C%20and%20Kentucky.)
-
+</details>
 <BR>
+<BR>
+<BR>
+<BR>
+Version 11/21/2023
+<BR>
+<BR>
+<details>
+<summary>
+Github Structure
+</summary> <br />
+<b>Python</b>
 
 ├── LICENSE
 ├── README.md          <- The top-level README for developers using this project.
@@ -211,7 +251,4 @@ Data Dictionary is used as a guide for expected values.
 │   │   └── train_model.py
 │   │
 │   └── visualization  <- Scripts to create exploratory and results-oriented visualizations
-
-
-
-2003 11-12
+</details>
