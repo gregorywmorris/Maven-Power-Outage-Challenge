@@ -4,8 +4,13 @@
     </a>
 </h1>
 
-<h6>Project brief</h6>
-For the Maven Power Outage Challenge, you'll be playing the role of a Senior Analytics Consultant hired by the U.S. Department of Energy (DOE). Here's your project brief:
+
+<h5>Project brief</h5>
+<details>
+<summary>
+Challenge Objective
+</summary><br>
+For the <a href="https://mavenanalytics.io/challenges/maven-power-outage-challenge/28">Maven Power Outage Challenge</a>, you'll be playing the role of a Senior Analytics Consultant hired by the U.S. Department of Energy (DOE). Here's your project brief:
 <br>
 <br>
 Electricity outages are a growing concern as we enter an age of unprecedented energy demand and climate disasters.
@@ -16,16 +21,27 @@ This is where you come in.
 
 We need you to consolidate and clean up the raw data, and create a dashboard or report to help us understand patterns and trends around outages, quantify their impact on our communities, and identify possible weak points in the grid.
 
-Last but not least, please explicitly call out any caveats or assumptions you make in regard to data quality issues or missing values.
+Last but not least, please explicitly call out any caveats or assumptions you make regarding data quality issues or missing values.
+</details><br>
 
-### Data Cleaning
+<h5>Executive Summary</h5>
+<details>
+<summary>
+TBD
+</summary><br>
+TBD
+</details><br>
+
+<h6>Data Cleaning</h6>
 Data Dictionary is used as a guide for expected values.
 
 <details>
 <summary>
 Data Dictionary
 </summary><br>
+
 **Field	Description:**
+
 *  **Date & Time Event Began:**	The month day year and time (in 24-hour format) when the incident began.
 *  **Date & Time of Restoration:** The month day year and time (in 24-hour format) when the event no longer met one of the 24 criteria for an emergency alert.
 *  **Area Affected:** The name of the State(s) and political subdivision(s) (i.e. city town county etc.) affected by the incident. This represents the largest area affected by the incident and it's not a requirement to list all the cities and towns in a region or State.
