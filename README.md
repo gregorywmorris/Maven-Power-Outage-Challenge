@@ -154,8 +154,7 @@ Stage Two
     * Removed dates and times.
     * Error: Number stored as text, converted to a number.
     * Formated number with one decimal place to maintain the accuracy of estimates given.
-    * Filled blanks where specified in Alert Criteria, accepting the highest if a range is given.
-        * In the case of "Uncontrolled loss of (various numbers provided) Megawatts or more...", blanks filled in as 100.
+    
 
 <br>
 
@@ -167,9 +166,7 @@ Stage Two
     * Approx, greater/Less than converted to just the number given.
     * Converted utilities and industrial to just the number given.
     * Formatted to a whole number.
-    * Fill in blanks where specified in Alert Criteria, accepting the highest if a range is given.
-        * in the case of "Loss of electric service to more than 50,000 customers...", blanks filled in as 50000.
-    * In some instances, the number reported may be less than suggested in the Alert Criteria. No correction was made. 
+    
 </details>
 
 <details>
@@ -179,12 +176,19 @@ Stage Three
 <b>Python</b>
 
 * Identify negative datetimes
-     * For datetime correction: in the case of 00:00 to early morning, (0400) it is considered a wrong day issue as it is common for Americans to transition to the AM as if it is the same day in common talk. This is further supported by the times often starting in late evening or near midnight. 
+     * For datetime correction: in the case of 00:00 to early morning, (0400) it is considered a wrong day issue as it is common for Americans to transition to the AM as if it is the same day in common talk. This is further supported by the times often starting in the late evening or near midnight. 
     * In all other cases, the dates will be treated as if they are transposed and swapped accordingly. 
 * Fill in blanks based on Event Type and NERC Region averages.
     * Fill remaining after by just Event Type.
 * Identify US states and Canadian provinces.
-* Identify duplicate dates, and export list to Excel for manual comparison to confirm if merge is neccessary.
+* Identify duplicate dates, and export the list to Excel for manual comparison to confirm if a merge is necessary.
+* MW
+    * Filled blanks where specified in Alert Criteria, accepting the highest if a range is given.
+        * In the case of "Uncontrolled loss of (various numbers provided) Megawatts or more...", blanks filled in as 100.
+* Customers
+    * Fill in blanks where specified in Alert Criteria, accepting the highest if a range is given.
+        * in the case of "Loss of electric service to more than 50,000 customers...", blanks filled in as 50000.
+    * In some instances, the number reported may be less than suggested in the Alert Criteria. No correction was made. 
 * Column names to all upper case.
 * Save as 'DOE_final.xlxs'.
 
@@ -196,6 +200,8 @@ Stage Three
     * Combined special cases:
         * 2007-9-18 5:15 and 9-18 5:14 events.
         * 2010-6-17 0930, all 3 keep the latest resolution reporting.
+        * 2007-10-22 14:01:00 and 2007-10-22 14:05:00 merge, keep highest reporting.
+        * 2008-09-12 18:21:00 and 2008-09-12 18:21:00 are not combined, similarly named areas. But not the same reporting area.
 * Correct NERC Region based on state identification.
 * Manually correct states post Python processing.
 * Google city, area, and county locations. 
