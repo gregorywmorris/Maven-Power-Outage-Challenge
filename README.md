@@ -176,12 +176,13 @@ Stage Three
 <b>Python</b>
 
 * Identify negative datetimes
-     * For datetime correction: in the case of 00:00 to early morning, (0400) it is considered a wrong day issue as it is common for Americans to transition to the AM as if it is the same day in common talk. This is further supported by the times often starting in the late evening or near midnight. 
+     * For datetime64 correction: in the case of 00:00 to early morning, (0400) it is considered a wrong day issue as it is common for Americans to transition to the AM as if it is the same day in common talk. This is further supported by the times often starting in the late evening or near midnight. 
     * In all other cases, the dates will be treated as if they are transposed and swapped accordingly. 
 * Fill in blanks based on Event Type and NERC Region averages.
     * Fill remaining after by just Event Type.
 * Identify US states and Canadian provinces.
 * Identify duplicate dates, and export the list to Excel for manual comparison to confirm if a merge is necessary.
+* Values are assumed to be Missing Completely at Random (MCAR).
 * MW
     * Filled blanks where specified in Alert Criteria, accepting the highest if a range is given.
         * In the case of "Uncontrolled loss of (various numbers provided) Megawatts or more...", blanks filled in as 100.
@@ -194,14 +195,6 @@ Stage Three
 
 <b>Excel</b>
 * Validate and complete state and province identification. 
-* Duplicates are identified by Reporting Area and similarity of time, then merged. 
-    * If the same reporting areas the highest number is kept. If one has additional reporting then numbers are combined.
-    * Different Area Affected in the same state, the same Event Type, and with the same cause and the same start and end times will be combined.
-    * Combined special cases:
-        * 2007-9-18 5:15 and 9-18 5:14 events.
-        * 2010-6-17 0930, all 3 keep the latest resolution reporting.
-        * 2007-10-22 14:01:00 and 2007-10-22 14:05:00 merge, keep highest reporting.
-        * 2008-09-12 18:21:00 and 2008-09-12 18:21:00 are not combined, similarly named areas. But not the same reporting area.
 * Correct NERC Region based on state identification.
 * Manually correct states post Python processing.
 * Google city, area, and county locations. 
@@ -223,6 +216,23 @@ Stage Three
     * [Government archives](https://www.archives.gov/milestone-documents/tennessee-valley-authority-act#:~:text=As%20a%20federal%20public%20power,%2C%20North%20Carolina%2C%20and%20Georgia.)
 * [Balancing Area](https://www.eia.gov/electricity/gridmonitor/about)
     * [Southeastern Power Administration (SEPA)](https://www.federalregister.gov/agencies/southeastern-power-administration#:~:text=The%20Southeastern%20Power%20Administration%20is,Mississippi%2C%20Tennessee%2C%20and%20Kentucky.)
+* Duplicates are identified by area affected and time, then merged. 
+    * Different areas affected in the same state, the same event type, the same cause, and the same start and end times will be combined.
+    * If the same reporting area, the highest number is kept. If one has additional reporting then numbers are combined. 
+    * Duplicate special cases: 
+        * These are things like slight variance in times but the same specific reporting area such as California: Butte County.
+        * 2007-9-18 5:15 and 9-18 5:14 events.
+        * 2010-6-17 0930, all 3 keep the latest resolution reporting.
+        * 2007-10-22 14:01:00 and 2007-10-22 14:05:00 merge, keep highest reporting.
+        * 2018-08-07 01:22:00: latest time and highest reporting kept.2020-01-09 23:07:00 one-minute variance time of restoration.
+        * 2021-02-15 01:54:00 and 2021-02-15 02:51:00 combined Texas: Travis County.
+        * 2021-02-15 18:00:00 kept latest time.
+        * 2021-02-16 06:48:00 state reported as separate and combined with another state, highest customer number kept.
+        * 2022-01-01 12:36:00 highest time of restoration kept.
+        * 2022-02-03 12:56:00 highest time of restoration kept.
+* Deleted rows that have ALL of the following as unknown: area affected, event type, power, and customer.
+
+
 </details>
 <BR>
 <BR>
