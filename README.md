@@ -231,6 +231,10 @@ Stage Three
         * 2022-01-01 12:36:00 highest time of restoration kept.
         * 2022-02-03 12:56:00 highest time of restoration kept.
 * Deleted rows that have ALL of the following as unknown: area affected, event type, power, and customer.
+* Clean up extra spaces and quotation marks.
+    * Create a standard list: `=SUBSTITUTE(SUBSTITUTE(MID(A2, 2, LEN(A2)-2), ", ", ","), ",", ", ")`
+    * Remove spaces: `=SUBSTITUTE(SUBSTITUTE(A1, ", ", ","), " ,", ",")`
+    * Remove quotation marks: `=SUBSTITUTE(A1, "'", "")`
 
 
 </details>
