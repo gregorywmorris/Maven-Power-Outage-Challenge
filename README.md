@@ -13,6 +13,13 @@ Challenge Objective
 For the <a href="https://mavenanalytics.io/challenges/maven-power-outage-challenge/28">Maven Power Outage Challenge</a>, you'll be playing the role of a Senior Analytics Consultant hired by the U.S. Department of Energy (DOE). Here's your project brief:
 <br>
 <br>
+</details><br>
+
+<h5>Executive Summary</h5>
+<details>
+<summary>
+
+</summary>
 Electricity outages are a growing concern as we enter an age of unprecedented energy demand and climate disasters.
 
 We have event-level power outage data going back to 2002 but have struggled to make sense of it due to severe issues with the data quality and integrity.
@@ -24,18 +31,26 @@ We need you to consolidate and clean up the raw data, and create a dashboard or 
 Last but not least, please explicitly call out any caveats or assumptions you make regarding data quality issues or missing values.
 </details><br>
 
-<h5>Executive Summary</h5>
+
+
+<h5>Data Cleaning</h5>
+<ul>
+    <li>Links throughout reference sources were used to assist in data cleaning decisions.</li>
+    <li>Used the Data Dictionary as a guide for expected values.</li>
+    <li>Assumed that the DOE will accept filled missing data for analysis purposes. Alternatively, I would have considered row deletion or simply left as is if desired by the DOE; the latter would likely have a greater negative effect on analysis. The ideal scenario would be to contact reporting entities and request missing data.</li>
+    <li>Assumed Puerto Rico data is desired. PR region created.</li>
+    <li>Assumed Hawai data is desired. HI region created.</li>
+</ul>
+
+<h6>Overview TLDR</h6>
+Three-stage data cleaning processes in Excel and Python. 
+<ol type="1">
+<li>Stage one: Merge and formatting focused, light data cleaning. Output a single Excel sheet with a combined format.</li>
+<li>Stage two: Deep dive into Excel data cleaning and subject matter research.</li>
+<li>Stage Three: Final Excel data cleaning, Python to identify and/or clean, machine learning implementation to be considered for filling missing data. </li>
+<br>
 <details>
-<summary>
 
-</summary><br>
-TBD
-</details><br>
-
-<h6>Data Cleaning</h6>
-Data Dictionary is used as a guide for expected values.
-
-<details>
 <summary>
 Data Dictionary
 </summary><br>
