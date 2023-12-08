@@ -35,7 +35,7 @@ Last but not least, please explicitly call out any caveats or assumptions you ma
 <br>
 <a href="https://public.tableau.com/app/profile/gregory.morris4179/viz/MavenPowerOutageChallenge/DOEDashboard">DOE Reported Power Outage Dashboard</a>
 <br>
-
+<br>
 <b>Recommendations:</b>
 <ol>
 <li>Require the reporting entity to complete missing data or confirm after the event that the data is not available. DOE manual or automated follow-up on incomplete data. With many old "ongoing" events or missing resolution data/time, it is clear that reporting is not prioritized by reporters. Stressing the need for the missing data may yield more complete data. 
