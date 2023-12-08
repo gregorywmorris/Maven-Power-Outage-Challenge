@@ -27,7 +27,7 @@ Last but not least, please explicitly call out any caveats or assumptions you ma
 <h5>Executive Summary</h5>
 <details>
 <summary>
-TBD
+
 </summary><br>
 TBD
 </details><br>
@@ -54,7 +54,7 @@ Data Dictionary
 **Additional Note:**
 
 * The year range is from 2002 to 2023.
-* Users are instructed to leave blank when unable to estimate outages MW or population. For analysis purposes these numbers will be estimated. 
+* Users are instructed to leave blank when unable to estimate outages MW or population. For analysis purposes, these numbers will be estimated. 
 </details>
 
 <details>
@@ -66,13 +66,13 @@ Stage One
 * Used the Data Dictionary as a guide for expected values.
 * Formatted data tables:
     * Format to use 2022's column names as this format best fits the majority of the data.
-    * For Alert criteria before 2015, list as 'unknown'.
+    * For Alert criteria before 2015, listed as 'unknown'.
     * Split combined date time columns for years before 2011.
     * Formatted the correct type for date, time, and integer columns.
 * Dates transposed (showing as finishing before the start date), corrected the date and month then moved to the correct sheet when appropriate.
 * Removed 'ongoing' from the date column.
 * Remove gridlines and white background color.
-* Sheet 2023: Removed Temp column.
+* Sheet 2023: Removed Temp column; no data.
 * Sheet 2016: Only had data up to October 31st.
 * Sheet 2011: the years 2077 (well into the future) and 2001 (before data collection) were corrected to 2011 to match the start date.
 * Sheet 2004: Removed record with no start and end dates. Unable to confirm actuals.
@@ -91,7 +91,7 @@ Stage Two
 * Format data to Calibri 10 middle center.
 * Format date formula: `=DATE(YEAR(C2),MONTH(C2),DAY(C2))`
 * Format time to resolve a.m./p.m. issue: `=SUBSTITUTE(SUBSTITUTE(TEXT(C2, "hh:mm AM/PM"), "a.m.", "AM"), "p.m.", "PM")`
-* Convert to time: `=TIME(HOUR(D2),MINUTE(D2),SECOND(D2))`
+* Convert to time data type: `=TIME(HOUR(D2),MINUTE(D2),SECOND(D2))`
 * Merge date time: `=DATE(YEAR(B2), MONTH(B2), DAY(B2)) + TIME(HOUR(C2), MINUTE(C2), SECOND(C2))`
 * Convert restoration time based on hours: `=B2 + TIME(7, 0, 0)`
     * Dates are adjusted for times that rollover.
@@ -103,7 +103,7 @@ Stage Two
     * Ongoing and blank dates are filled with the start dates as that is the only day we can confirm the outage occurred. 
     * Formatted to date type.
 * Time of Restoration: 
-    * Removed extra spaces and words, 
+    * Removed extra spaces and words.
     * Transitioned to time ##:## AM/PM format, N/A and blank end times determined by average time per year based on reporting from [US Energy Information Administration.](https://www.eia.gov/todayinenergy/detail.php?id=54639#:~:text=When%20major%20events%E2%80%94including%20snowstorms,year%20from%202013%20to%202021.) 
     * No reliable date before 2008, used an average time of 3.5 hours for 2009 and all earlier years. [Eaton Blackout Tracker](https://www.eaton.com/content/dam/eaton/products/backup-power-ups-surge-it-power-distribution/backup-power-ups/blackout-tracker-/eaton-blackout-tracker-annual-report-2009.pdf) began in early 2008 but only the 2009 report is available. 
     * No reliable date after 2021, used an average time of 7 hours in 2021 for all later years.
@@ -124,10 +124,10 @@ Stage Two
     1. Other: Rare and unique events. Low-flying helicopter, Voltage Reduction (System Test), Made Public Appeal - System Drill, and other.
     1. Physical Attack/Vandalism: all variants of physical attack, vandalism, and suspicious activity.
     1. Severe Weather - Heat Wave: Heat storm, heat wave, high temperatures.
-    1. Severe Weather - Lightning/Thunderstorm: Lightning storms, lightning strikes, lighting, thunderstorms and [Hail](https://www.nssl.noaa.gov/education/svrwx101/hail/).
+    1. Severe Weather - Lightning/Thunderstorm: Lightning storms, lightning strikes, lightning, thunderstorms and [Hail](https://www.nssl.noaa.gov/education/svrwx101/hail/).
     1. Severe Weather - Rain/Wind/Flooding: All variants of rain, flooding, with or without Wind.
     1. Severe Weather - Wind: Nor'easter, high winds, Severe Storm with High Wind Gusts, dust storm.
-    1. Severe Weather - Winter/Snow/Ice: All variants of winter, snow, ice, cold weather, freezing rain and winter storm events. NOAA's National Severe Storms Laboratory [groups these as winter storms.](https://www.nssl.noaa.gov/education/svrwx101/winter/types/#:~:text=Winter%20Storms&text=While%20heavy%20snowfalls%20and%20severe,of%20ice%20on%20exposed%20surfaces.), Public Appeal due to Severe Weather - Cold.
+    1. Severe Weather - Winter/Snow/Ice: All variants of winter, snow, ice, cold weather, freezing rain and winter storm events. NOAA's National Severe Storms Laboratory [groups these as winter storms.](https://www.nssl.noaa.gov/education/svrwx101/winter/types/), Public Appeal due to Severe Weather - Cold.
     1. Severe Weather - Unspecified/Other: May or may not include high winds, severe weather, severe/major storms, weather, fog.
     1. System Operations: [System operations](https://www.pjm.com/markets-and-operations/ops-analysis), operational failure of electrical system.
     1. Unkown/Unspecified: Unknown *, - Unknown, Distribution Interruption - Unknown Cause, [Load shedding](https://www.techtarget.com/searchdatacenter/definition/load-shedding), shed firm load, public appeal (no cause listed), load reduction, interruption of firm power, Electrical System Separation/[Islanding](https://en.wikipedia.org/wiki/Islanding). Unless the cause is listed i.e. fire, severe weather, etc.
@@ -136,7 +136,7 @@ Stage Two
 
 * NERC Region
     * Electricity Information Sharing and Analysis Center (E-ISAC) converted to the appropriate NERC region based on the criteria listed below:
-        * [NERC Atlas for NERC identification](https://atlas.eia.gov/datasets/eia::nerc-regions/explore?location=28.054751%2C-86.957928%2C4.65) with Google Maps to identify locations not in the atlas.
+        * [NERC Atlas for NERC identification](https://atlas.eia.gov/maps/nerc-regions) with Google Maps to identify locations not in the atlas.
         * NERC based on the Area Affected Column. 
         * Convert delimiters to ",".
         * Corrected spellings.
@@ -183,12 +183,12 @@ Stage Three
 * Identify US states and Canadian provinces.
 * Identify duplicate dates, and export the list to Excel for manual comparison to confirm if a merge is necessary.
 * Values are assumed to be Missing Completely at Random (MCAR).
-* MW
+* Demand loss MW
     * Filled blanks where specified in Alert Criteria, accepting the highest if a range is given.
         * In the case of "Uncontrolled loss of (various numbers provided) Megawatts or more...", blanks filled in as 100.
 * Customers
     * Fill in blanks where specified in Alert Criteria, accepting the highest if a range is given.
-        * in the case of "Loss of electric service to more than 50,000 customers...", blanks filled in as 50000.
+        * In the case of "Loss of electric service to more than 50,000 customers...", blanks filled in as 50000.
     * In some instances, the number reported may be less than suggested in the Alert Criteria. No correction was made. 
 * Column names to all upper case.
 * Save as 'DOE_final.xlxs'.
