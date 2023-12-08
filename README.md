@@ -4,7 +4,6 @@
     </a>
 </h1>
 
-
 <h5>Project brief</h5>
 <details>
 <summary>
@@ -12,27 +11,65 @@ Challenge Objective
 </summary><br>
 For the <a href="https://mavenanalytics.io/challenges/maven-power-outage-challenge/28">Maven Power Outage Challenge</a>, you'll be playing the role of a Senior Analytics Consultant hired by the U.S. Department of Energy (DOE). Here's your project brief:
 <br>
-<br>
-</details><br>
-
-<h5>Executive Summary</h5>
-<details>
-<summary>
-
-</summary>
-Electricity outages are a growing concern as we enter an age of unprecedented energy demand and climate disasters.
-
-We have event-level power outage data going back to 2002 but have struggled to make sense of it due to severe issues with the data quality and integrity.
-
-This is where you come in.
+Electricity outages are a growing concern as we enter an age of unprecedented energy demand and climate disasters. We have event-level power outage data going back to 2002 but have struggled to make sense of it due to severe issues with the data quality and integrity. This is where you come in.
 
 We need you to consolidate and clean up the raw data, and create a dashboard or report to help us understand patterns and trends around outages, quantify their impact on our communities, and identify possible weak points in the grid.
 
 Last but not least, please explicitly call out any caveats or assumptions you make regarding data quality issues or missing values.
-</details><br>
+</details>
 
 
+<h5>Executive Summary</h5>
 
+<b>Stakeholders:</b> DOE executive and managerial leadership.
+
+<b>Assumptions and Limitations:</b>
+<ul>
+<li>Excluded Canada, DOE only has jurisdiction over U.S. states and territories. 
+<li>Not all U.S. territories are represented in reporting.
+<li>No reporting from Alaska. The DOE does get some reporting from an alternative source as can be seen in this DOE report.
+<li>No direct contact with DOE. Unable to get clarity on questions and concerns.
+</ul>
+<b>Overview:</b> A DOE-commissioned dashboard for review of past events and continued monitoring of future events. The dashboard allows a review of key concerns: demand loss, duration, customers affected, and event types. Filtering can be done by year, month, NERC Region, state, and event type. The dashboard is intended to be used by all levels of leadership.
+<br>
+<br>
+<a href="https://public.tableau.com/app/profile/gregory.morris4179/viz/MavenPowerOutageChallenge/DOEDashboard">DOE Reported Power Outage Dashboard</a>
+<br>
+<br>
+<b>Recommendations:</b>
+<ol>
+<li>Require the reporting entity to complete missing data or confirm after the event that the data is not available. DOE manual or automated follow-up on incomplete data. With many old "ongoing" events or missing resolution data/time, it is clear that reporting is not prioritized by reporters. Stressing the need for the missing data may yield more complete data. 
+<li>Create reporting personnel standards. Data inconsistencies indicate that underqualified or undertrained personnel are reporting outages. 
+    <ul>
+        <li>Create a standard of expectation on the qualification of reporting personnel.
+        <li>Review instruction and documentation for any areas that may be unclear. Then distribute updated documentation to reporting entities. 
+        <li>Consider adding criteria on how to estimate information as an additional option and/or mandate it on reporting of event resolution.
+        <li>Mandate <a href="https://www.nerc.com/AboutNERC/keyplayers/Pages/default.aspx">NERC region</a> and state identification and provide a separate column for <a href="https://www.eia.gov/electricity/data/eia411/#tabs_NERC-1">NERC sub-regions</a>.
+        <li>Review lines of communication to ensure reporting agencies can seek clarification.
+    </ul>
+<li>Create a data repository for all data reporting of outages.</li>
+    <ul>
+        <li>Consider standardizing how and what data is collected through different channels.</li>
+    </ul>
+</ol>
+
+<h5>Dashboard Design Decisions</h5>
+
+<ul>
+    <li>Style guide determined by:
+    <ul>
+        <li>The DOE logo was used as a color style guide due to a lack of specifications.
+        <li>Colors are not color-blind friendly. For accessibility, white space is <li>used to separate colors and color distinction is not necessary for interpretation.
+        <li><a href="https://www.energy.gov/department-energy-logo-and-branding-guidelines"> DOE Logo and Branding</a>
+        <li><a href="https://www.energy.gov/eere/communicationstandards/style-guide-full-text#abbreviations">DOE Style Guide Full Text</a>
+    </ul>
+    <li>Interactivity: Field selection allows for a quick user-friendly way to filter data as well as increasing accessability.
+    <li>Allow high-level overview with drill-down capabilities so the leadership at any level can access key information. 
+    <li>The expected use is DOE internal. The design utilized 'Tableau automatic' and is best viewed on a desktop or laptop. Tablet and phone use is not recommended.
+    <li>Simple design: Leadership-focused, avoid any distracting images or too many colors. For consumer-facing, a flashier design would be appropriate in addition to being tablet and phone-friendly.
+    <li>Some numbers were aggregated to the thousands rather than millions to make the dashboard more practical when drilling down. 
+</ul>
+<br>
 <h5>Data Cleaning</h5>
 <ul>
     <li>Links throughout reference sources were used to assist in data cleaning decisions.</li>
